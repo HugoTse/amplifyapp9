@@ -431,7 +431,8 @@ function App() {
                          {/* Customer */}
                          <TextareaAutosize
                               className='responsiveTA'
-                              // defaultValue={}
+                              // Trying default value
+                              defaultValue={gobj.customer}
                               placeholder={gobj.customer}
                               onChange={(e) =>
                                 setFormData({
@@ -442,7 +443,7 @@ function App() {
                               value={formData.customer}
                           />
                           {/* Prepopulating */}
-                          <input
+                          {/* <input
                               defaultValue={gobj.customer}
                               onChange={(e) =>
                                 setFormData({
@@ -452,7 +453,7 @@ function App() {
                               }
                               ref={formData.customer}
                           >
-                          </input>
+                          </input> */}
                         </TableCell>
                         <TableCell>
                           {/* Service */}
