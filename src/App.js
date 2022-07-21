@@ -429,6 +429,7 @@ function App() {
                         <>
                         <TableCell>
                          {/* Customer */}
+                         <div key={gobj.customer}>
                          <TextareaAutosize
                               className='responsiveTA'
                               // Trying default value
@@ -442,6 +443,7 @@ function App() {
                               }
                               value={formData.customer}
                           />
+                          </div>
                           {/* Prepopulating */}
                           {/* <input
                               defaultValue={gobj.customer}
@@ -457,18 +459,20 @@ function App() {
                         </TableCell>
                         <TableCell>
                           {/* Service */}
+                          <div key={gobj.service}>
                           <TextareaAutosize
-                                className='responsiveTA'
-                                defaultValue={gobj.service}
-                                placeholder={gobj.service}
-                                onChange={(f) =>
-                                  setFormData({
-                                    ...formData,
-                                    service: f.target.value,
-                                  })
-                                }
-                                value={formData.service}
-                            />
+                              className='responsiveTA'
+                              defaultValue={gobj.service}
+                              placeholder={gobj.service}
+                              onChange={(f) =>
+                                setFormData({
+                                  ...formData,
+                                  service: f.target.value,
+                                })
+                              }
+                              value={formData.service}
+                          />
+                          </div>
                         </TableCell>
                         <TableCell>
                           {/* Claim */}
