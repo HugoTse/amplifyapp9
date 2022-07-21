@@ -300,7 +300,7 @@ function App() {
                                   customer: e.target.value, user: user.username
                                 })
                               }
-                              // value={formData.customer}
+                              value={formData.customer}
                           />
                         </TableCell>
                         <TableCell>
@@ -315,7 +315,7 @@ function App() {
                                     service: e.target.value,
                                   })
                                 }
-                                // value={formData.service}
+                                value={formData.service}
                             />
                         </TableCell>
                         <TableCell>
@@ -441,7 +441,7 @@ function App() {
                                   customer: e.target.value, user: user.username
                                 })
                               }
-                              value={formData.customer}
+                              // value={formData.customer}
                           />
                           </div>
                           {/* Prepopulating */}
@@ -470,7 +470,7 @@ function App() {
                                   service: f.target.value,
                                 })
                               }
-                              value={formData.service}
+                              // value={formData.service}
                           />
                           </div>
                         </TableCell>
@@ -486,7 +486,7 @@ function App() {
                                   claim: g.target.value,
                                 })
                               }
-                              value={formData.claim}
+                              // value={formData.claim}
                           />
                         </TableCell>
                         <TableCell>
@@ -501,7 +501,7 @@ function App() {
                                 winloss: h.target.value,
                               })
                             }
-                            value={formData.winloss}
+                            // value={formData.winloss}
                           />
                         </TableCell>
                         <TableCell>
@@ -547,7 +547,7 @@ function App() {
                                 serviceteam: i.target.value, 
                               })
                             }
-                            value={formData.serviceteam}
+                            // value={formData.serviceteam}
                           />
                         </TableCell>
                           <TableCell>
