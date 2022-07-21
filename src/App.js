@@ -459,7 +459,7 @@ function App() {
                           {/* Service */}
                           <TextareaAutosize
                                 className='responsiveTA'
-                                // defaultValue={}
+                                defaultValue={gobj.service}
                                 placeholder={gobj.service}
                                 onChange={(e) =>
                                   setFormData({
@@ -474,7 +474,7 @@ function App() {
                           {/* Claim */}
                           <TextareaAutosize
                               className='responsiveTA'
-                              // defaultValue={}
+                              defaultValue={gobj.claim}
                               placeholder={gobj.claim}
                               onChange={(e) =>
                                 setFormData({
@@ -489,7 +489,7 @@ function App() {
                           {/* Win/Loss */}
                           <TextareaAutosize
                             className='responsiveTA'
-                            // defaultValue={}
+                            defaultValue={gobj.winloss}
                             placeholder={gobj.winloss}
                             onChange={(e) =>
                               setFormData({
@@ -535,7 +535,7 @@ function App() {
                           {/* Service Team */}
                           <TextareaAutosize
                             className='responsiveTA'
-                            // defaultValue={}
+                            defaultValue={gobj.serviceteam}
                             placeholder={gobj.serviceteam}
                             onChange={(e) =>
                               setFormData({
