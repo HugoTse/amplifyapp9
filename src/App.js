@@ -215,10 +215,13 @@ function App() {
     if (adding) {
       setAdding(false);
     }
-    setEditid(id).thenfetchGobjs();
+    setEditid(id);
     console.log(editid);
     // Adding fetch after setting the change id
-    // fetchGobjs();
+    setTimeout(function(){
+      console.log("I am the third log after 5 seconds");
+      fetchGobjs();
+    },1000);
   }
 
   async function clear() {
