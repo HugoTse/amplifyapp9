@@ -123,6 +123,9 @@ function App() {
 
   // Creating gobjs
   async function createGobj() {
+    // Establishing user identity
+    setFormData({...formData, user: user.username, });
+    console.log(formData.user);
     changeAdding();
     if (!formData.customer) return;
     // await API.graphql({ query: createGobjMutation, variables: { input: formData } });
@@ -158,6 +161,9 @@ function App() {
 
   // Editing gobj
   async function editGobj({ id }) {
+    // Establishing user identity
+    setFormData({...formData, user: user.username, });
+    console.log(formData.user);
     console.log(id);
     if (!formData.customer) return;
     await API.graphql({
@@ -192,9 +198,6 @@ function App() {
       }
     }
     setAdding(!adding);
-    // Establishing user identity
-    setFormData({...formData, user: user.username, });
-    console.log(formData.user);
   }
 
   // Editing
@@ -206,9 +209,6 @@ function App() {
     if (adding) {
       setAdding(false);
     }
-    // Establishing user identity
-    setFormData({...formData, user: user.username, });
-    console.log(formData.user);
   }
 
   async function clear() {
