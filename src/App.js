@@ -461,10 +461,10 @@ function App() {
                                 className='responsiveTA'
                                 defaultValue={gobj.service}
                                 placeholder={gobj.service}
-                                onChange={(e) =>
+                                onChange={(f) =>
                                   setFormData({
                                     ...formData,
-                                    service: e.target.value,
+                                    service: f.target.value,
                                   })
                                 }
                                 value={formData.service}
@@ -476,10 +476,10 @@ function App() {
                               className='responsiveTA'
                               defaultValue={gobj.claim}
                               placeholder={gobj.claim}
-                              onChange={(e) =>
+                              onChange={(g) =>
                                 setFormData({
                                   ...formData,
-                                  claim: e.target.value,
+                                  claim: g.target.value,
                                 })
                               }
                               value={formData.claim}
@@ -491,10 +491,10 @@ function App() {
                             className='responsiveTA'
                             defaultValue={gobj.winloss}
                             placeholder={gobj.winloss}
-                            onChange={(e) =>
+                            onChange={(h) =>
                               setFormData({
                                 ...formData,
-                                winloss: e.target.value,
+                                winloss: h.target.value,
                               })
                             }
                             value={formData.winloss}
@@ -537,10 +537,10 @@ function App() {
                             className='responsiveTA'
                             defaultValue={gobj.serviceteam}
                             placeholder={gobj.serviceteam}
-                            onChange={(e) =>
+                            onChange={(i) =>
                               setFormData({
                                 ...formData,
-                                serviceteam: e.target.value, 
+                                serviceteam: i.target.value, 
                               })
                             }
                             value={formData.serviceteam}
