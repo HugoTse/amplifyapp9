@@ -215,10 +215,10 @@ function App() {
     if (adding) {
       setAdding(false);
     }
-    setEditid(id);
+    setEditid(id).thenfetchGobjs();
     console.log(editid);
     // Adding fetch after setting the change id
-    fetchGobjs();
+    // fetchGobjs();
   }
 
   async function clear() {
