@@ -237,7 +237,7 @@ function App() {
 
   return (
     <div className="App">
-      {user ? (
+      { user ? (
         <>
           <div className="signInAndOutDiv">
             {/* Sign out button */}
@@ -441,6 +441,18 @@ function App() {
                               }
                               value={formData.customer}
                           />
+                          {/* Prepopulating */}
+                          <input
+                              defaultValue={gobj.customer}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  customer: e.target.value, user: user.username
+                                })
+                              }
+                              ref={formData.customer}
+                          >
+                          </input>
                         </TableCell>
                         <TableCell>
                           {/* Service */}
