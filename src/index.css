@@ -68,6 +68,10 @@ code {
   margin-top: 10%;
 }
 
+.deleteIconDiv{
+  margin-top: 2%;
+}
+
 .signInAndOutDiv{
   margin-top: 2%;
   margin-bottom: 2%;
@@ -75,4 +79,12 @@ code {
 
 .submitAndCancel {
   margin-bottom: 10%;
+}
+
+.responsiveTA {
+  border: none;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
 }

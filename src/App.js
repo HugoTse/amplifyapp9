@@ -31,6 +31,7 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { AiTwotoneDelete } from "react-icons/ai";
+import TextareaAutosize from 'react-textarea-autosize';
 import "@aws-amplify/ui-react/styles.css";
 
 Amplify.configure(config);
@@ -42,6 +43,7 @@ const initialFormState = {
   winloss: "",
   priority: "",
   serviceteam: "",
+  user: ""
 };
 
 function App() {
@@ -134,6 +136,7 @@ function App() {
           winloss: formData.winloss,
           priority: formData.priority,
           serviceteam: formData.serviceteam,
+          user: formData.user
         },
       },
     });
@@ -168,6 +171,7 @@ function App() {
           winloss: formData.winloss,
           priority: formData.priority,
           serviceteam: formData.serviceteam,
+          user: formData.user
         },
       },
     });
@@ -180,14 +184,17 @@ function App() {
   const [adding, setAdding] = useState(false);
 
   async function changeAdding() {
-    console.log(user);
-    console.log(user.username);
+    // console.log(user);
+    // console.log(user.username);
     if (adding == false) {
       if (editid != "") {
         setEditid("");
       }
     }
     setAdding(!adding);
+    // Establishing user identity
+    setFormData({...formData, user: user.username, });
+    console.log(formData.user);
   }
 
   // Editing
@@ -199,6 +206,9 @@ function App() {
     if (adding) {
       setAdding(false);
     }
+    // Establishing user identity
+    setFormData({...formData, user: user.username, });
+    console.log(formData.user);
   }
 
   async function clear() {
@@ -266,55 +276,55 @@ function App() {
                     <>
                       <TableRow>
                         <TableCell>
-                          <TextAreaField
-                            fontSize="var(--amplify-font-sizes-small)"
-                            label=""
-                            variation="quiet"
-                            placeholder="..."
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                customer: e.target.value,
-                              })
-                            }
-                            value={formData.customer}
+                         {/* Customer */}
+                         <TextareaAutosize
+                              className='responsiveTA'
+                              // defaultValue={}
+                              placeholder="..."
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  customer: e.target.value,
+                                })
+                              }
+                              value={formData.customer}
                           />
                         </TableCell>
                         <TableCell>
-                          <TextAreaField
-                            fontSize="var(--amplify-font-sizes-small)"
-                            label=""
-                            variation="quiet"
-                            placeholder="..."
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                service: e.target.value,
-                              })
-                            }
-                            value={formData.service}
+                          {/* Service */}
+                          <TextareaAutosize
+                                className='responsiveTA'
+                                // defaultValue={}
+                                placeholder="..."
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    service: e.target.value,
+                                  })
+                                }
+                                value={formData.service}
+                            />
+                        </TableCell>
+                        <TableCell>
+                          {/* Claim */}
+                          <TextareaAutosize
+                              className='responsiveTA'
+                              // defaultValue={}
+                              placeholder="..."
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  claim: e.target.value,
+                                })
+                              }
+                              value={formData.claim}
                           />
                         </TableCell>
                         <TableCell>
-                          <TextAreaField
-                            fontSize="var(--amplify-font-sizes-small)"
-                            label=""
-                            variation="quiet"
-                            placeholder="..."
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                claim: e.target.value,
-                              })
-                            }
-                            value={formData.claim}
-                          />
-                        </TableCell>
-                        <TableCell>
-                          <TextAreaField
-                            fontSize="var(--amplify-font-sizes-small)"
-                            label=""
-                            variation="quiet"
+                          {/* Win/Loss */}
+                          <TextareaAutosize
+                            className='responsiveTA'
+                            // defaultValue={}
                             placeholder="..."
                             onChange={(e) =>
                               setFormData({
@@ -327,7 +337,7 @@ function App() {
                         </TableCell>
                         <TableCell>
                           <SelectField
-                            placeholder="Select Priority"
+                            placeholder="Select"
                             value={formData.priority}
                             onChange={(e) =>
                               setFormData({
@@ -357,10 +367,10 @@ function App() {
                           </SelectField>
                         </TableCell>
                         <TableCell>
-                          <TextAreaField
-                            fontSize="var(--amplify-font-sizes-small)"
-                            label=""
-                            variation="quiet"
+                          {/* Service Team */}
+                          <TextareaAutosize
+                            className='responsiveTA'
+                            // defaultValue={}
                             placeholder="..."
                             onChange={(e) =>
                               setFormData({
@@ -404,11 +414,11 @@ function App() {
                     <TableRow key={gobj.id}>
                       {gobj.id == editid ? (
                         <>
-                          <TableCell>
-                            <TextAreaField
-                              fontSize="var(--amplify-font-sizes-small)"
-                              label=""
-                              variation="quiet"
+                        <TableCell>
+                         {/* Customer */}
+                         <TextareaAutosize
+                              className='responsiveTA'
+                              // defaultValue={}
                               placeholder={gobj.customer}
                               onChange={(e) =>
                                 setFormData({
@@ -417,28 +427,28 @@ function App() {
                                 })
                               }
                               value={formData.customer}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          {/* Service */}
+                          <TextareaAutosize
+                                className='responsiveTA'
+                                // defaultValue={}
+                                placeholder={gobj.service}
+                                onChange={(e) =>
+                                  setFormData({
+                                    ...formData,
+                                    service: e.target.value,
+                                  })
+                                }
+                                value={formData.service}
                             />
-                          </TableCell>
-                          <TableCell>
-                            <TextAreaField
-                              fontSize="var(--amplify-font-sizes-small)"
-                              label=""
-                              variation="quiet"
-                              placeholder={gobj.service}
-                              onChange={(e) =>
-                                setFormData({
-                                  ...formData,
-                                  service: e.target.value,
-                                })
-                              }
-                              value={formData.service}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextAreaField
-                              fontSize="var(--amplify-font-sizes-small)"
-                              label=""
-                              variation="quiet"
+                        </TableCell>
+                        <TableCell>
+                          {/* Claim */}
+                          <TextareaAutosize
+                              className='responsiveTA'
+                              // defaultValue={}
                               placeholder={gobj.claim}
                               onChange={(e) =>
                                 setFormData({
@@ -447,69 +457,69 @@ function App() {
                                 })
                               }
                               value={formData.claim}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <TextAreaField
+                          />
+                        </TableCell>
+                        <TableCell>
+                          {/* Win/Loss */}
+                          <TextareaAutosize
+                            className='responsiveTA'
+                            // defaultValue={}
+                            placeholder={gobj.winloss}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                winloss: e.target.value,
+                              })
+                            }
+                            value={formData.winloss}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <SelectField
+                            placeholder="Select"
+                            value={formData.priority}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                priority: e.target.value,
+                              })
+                            }
+                          >
+                            <option
+                              value="Priority: High"
                               fontSize="var(--amplify-font-sizes-small)"
-                              label=""
-                              variation="quiet"
-                              placeholder={gobj.winloss}
-                              onChange={(e) =>
-                                setFormData({
-                                  ...formData,
-                                  winloss: e.target.value,
-                                })
-                              }
-                              value={formData.winloss}
-                            />
-                          </TableCell>
-                          <TableCell>
-                            <SelectField
-                              placeholder="Select"
-                              value={formData.priority}
-                              onChange={(e) =>
-                                setFormData({
-                                  ...formData,
-                                  priority: e.target.value,
-                                })
-                              }
                             >
-                              <option
-                                value="Priority: High"
-                                fontSize="var(--amplify-font-sizes-small)"
-                              >
-                                High
-                              </option>
-                              <option
-                                value="Priority: Medium"
-                                fontSize="var(--amplify-font-sizes-small)"
-                              >
-                                Medium
-                              </option>
-                              <option
-                                value="Priority: Low"
-                                fontSize="var(--amplify-font-sizes-small)"
-                              >
-                                Low
-                              </option>
-                            </SelectField>
-                          </TableCell>
-                          <TableCell>
-                            <TextAreaField
+                              High
+                            </option>
+                            <option
+                              value="Priority: Medium"
                               fontSize="var(--amplify-font-sizes-small)"
-                              label=""
-                              variation="quiet"
-                              placeholder={gobj.serviceteam}
-                              onChange={(e) =>
-                                setFormData({
-                                  ...formData,
-                                  serviceteam: e.target.value,
-                                })
-                              }
-                              value={formData.serviceteam}
-                            />
-                          </TableCell>
+                            >
+                              Medium
+                            </option>
+                            <option
+                              value="Priority: Low"
+                              fontSize="var(--amplify-font-sizes-small)"
+                            >
+                              Low
+                            </option>
+                          </SelectField>
+                        </TableCell>
+                        <TableCell>
+                          {/* Service Team */}
+                          <TextareaAutosize
+                            className='responsiveTA'
+                            // defaultValue={}
+                            placeholder={gobj.serviceteam}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                serviceteam: e.target.value,
+                              })
+                            }
+                            value={formData.serviceteam}
+                          />
+                        </TableCell>
                           <TableCell>
                             <div>
                               <Button
@@ -554,13 +564,22 @@ function App() {
                             {gobj.serviceteam}
                           </TableCell>
                           <TableCell>
-                            <Button onClick={() => change(gobj)}>EDIT</Button>
-                            <div>
-                              <AiTwotoneDelete
-                                className="deleteIcon"
-                                onDoubleClick={() => deleteGobj(gobj)}
-                              />
-                            </div>
+                            {/* Controlling who can edit */}
+                            {(gobj.user == user.username)? 
+                            (<>
+                              <div>
+                              <Button onClick={() => change(gobj)}>EDIT</Button>
+                              </div>
+                              <div className='deletIconDiv'>
+                                <AiTwotoneDelete
+                                  className="deleteIcon"
+                                  onDoubleClick={() => deleteGobj(gobj)}
+                                />
+                              </div> 
+                            </>) :
+                            (<></>)
+                            }
+                     
                           </TableCell>
                           {/* <td>{gobj.user}</td> */}
                           {/* <td><button className='editButton' onClick={() => editGobj(gobj)}>EDIT</button></td> */}
