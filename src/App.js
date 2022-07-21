@@ -124,8 +124,8 @@ function App() {
   // Creating gobjs
   async function createGobj() {
     // Establishing user identity
-    setFormData({...formData, user: user.username, });
-    console.log(formData.user);
+    // setFormData({...formData, user: user.username, });
+    // console.log(formData.user.username);
     changeAdding();
     if (!formData.customer) return;
     // await API.graphql({ query: createGobjMutation, variables: { input: formData } });
@@ -162,8 +162,8 @@ function App() {
   // Editing gobj
   async function editGobj({ id }) {
     // Establishing user identity
-    setFormData({...formData, user: user.username, });
-    console.log(formData.user);
+    // setFormData({...formData, user: user.username, });
+    // console.log(formData.user);
     console.log(id);
     if (!formData.customer) return;
     await API.graphql({
@@ -192,11 +192,15 @@ function App() {
   async function changeAdding() {
     // console.log(user);
     // console.log(user.username);
+    // Establishing user identity
+    // setFormData({...formData, user: user.username, });
+    // console.log(formData.user.username);
     if (adding == false) {
       if (editid != "") {
         setEditid("");
       }
     }
+    // Change the adding variable
     setAdding(!adding);
   }
 
@@ -204,6 +208,10 @@ function App() {
   const [editid, setEditid] = useState("");
 
   async function change({ id }) {
+    // Establishing user identity
+    // setFormData({...formData, user: user.username, });
+    // console.log(formData.user.username);
+    // Setting the id
     setEditid(id);
     console.log(editid);
     if (adding) {
@@ -284,7 +292,7 @@ function App() {
                               onChange={(e) =>
                                 setFormData({
                                   ...formData,
-                                  customer: e.target.value,
+                                  customer: e.target.value, user: user.username
                                 })
                               }
                               value={formData.customer}
@@ -375,7 +383,7 @@ function App() {
                             onChange={(e) =>
                               setFormData({
                                 ...formData,
-                                serviceteam: e.target.value,
+                                serviceteam: e.target.value, 
                               })
                             }
                             value={formData.serviceteam}
@@ -423,7 +431,7 @@ function App() {
                               onChange={(e) =>
                                 setFormData({
                                   ...formData,
-                                  customer: e.target.value,
+                                  customer: e.target.value, user: user.username
                                 })
                               }
                               value={formData.customer}
@@ -514,7 +522,7 @@ function App() {
                             onChange={(e) =>
                               setFormData({
                                 ...formData,
-                                serviceteam: e.target.value,
+                                serviceteam: e.target.value, 
                               })
                             }
                             value={formData.serviceteam}
