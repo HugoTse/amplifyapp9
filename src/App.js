@@ -212,11 +212,13 @@ function App() {
     // setFormData({...formData, user: user.username, });
     // console.log(formData.user.username);
     // Setting the id
-    setEditid(id);
-    console.log(editid);
     if (adding) {
       setAdding(false);
     }
+    setEditid(id);
+    console.log(editid);
+    // Adding fetch after setting the change id
+    fetchGobjs();
   }
 
   async function clear() {
