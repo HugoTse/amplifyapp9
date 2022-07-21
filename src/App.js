@@ -300,7 +300,7 @@ function App() {
                                   customer: e.target.value, user: user.username
                                 })
                               }
-                              value={formData.customer}
+                              // value={formData.customer}
                           />
                         </TableCell>
                         <TableCell>
@@ -315,7 +315,7 @@ function App() {
                                     service: e.target.value,
                                   })
                                 }
-                                value={formData.service}
+                                // value={formData.service}
                             />
                         </TableCell>
                         <TableCell>
